@@ -1,0 +1,231 @@
+[gd_scene load_steps=15 format=3 uid="uid://bslhrv3eo36wd"]
+
+[ext_resource type="Script" path="res://scenes/lobby.gd" id="1_g2fmt"]
+[ext_resource type="PackedScene" uid="uid://chbh4lxk8rmmd" path="res://scenes/ui/lobby_player.tscn" id="2_060bj"]
+[ext_resource type="Texture2D" uid="uid://cfwl6f7gdxjbx" path="res://resources/fondo_1.png" id="3_vtxeo"]
+[ext_resource type="FontFile" uid="uid://bc8vyj7tmoy65" path="res://resources/Coffee Soda.ttf" id="4_5w2si"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qphx8"]
+bg_color = Color(0.619878, 0.591309, 0.604793, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r8uk"]
+bg_color = Color(0.6, 0.517647, 0.572549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5dr5"]
+bg_color = Color(0.608537, 0.586514, 0.664628, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0gif"]
+bg_color = Color(0.607843, 0.588235, 0.662745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew3rj"]
+bg_color = Color(0.6, 0.517647, 0.572549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttgt8"]
+bg_color = Color(0.607843, 0.588235, 0.662745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l77bh"]
+bg_color = Color(0.607843, 0.588235, 0.662745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h46xj"]
+bg_color = Color(0.6, 0.517647, 0.572549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rd8by"]
+bg_color = Color(0.607843, 0.588235, 0.662745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omwsj"]
+bg_color = Color(0.607843, 0.588235, 0.662745, 1)
+
+[node name="Lobby" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("1_g2fmt")
+lobby_player_scene = ExtResource("2_060bj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_vtxeo")
+expand_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_qphx8")
+
+[node name="Menus" type="MarginContainer" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StartMenu" type="VBoxContainer" parent="PanelContainer/Menus"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Menus/StartMenu"]
+layout_mode = 2
+text = "Name:
+"
+
+[node name="User" type="LineEdit" parent="PanelContainer/Menus/StartMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5w2si")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2r8uk")
+text = "Player"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Menus/StartMenu"]
+layout_mode = 2
+
+[node name="Host" type="Button" parent="PanelContainer/Menus/StartMenu/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_5w2si")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r5dr5")
+text = "Host"
+
+[node name="Join" type="Button" parent="PanelContainer/Menus/StartMenu/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_5w2si")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n0gif")
+text = "Join"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/Menus/StartMenu"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Credits" type="Button" parent="PanelContainer/Menus/StartMenu/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_5w2si")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r5dr5")
+text = "CREDITS"
+
+[node name="howtoplay" type="Button" parent="PanelContainer/Menus/StartMenu/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_5w2si")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r5dr5")
+text = "How to play
+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/Menus/StartMenu"]
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="PanelContainer/Menus/StartMenu/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_5w2si")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r5dr5")
+text = "Exit
+"
+
+[node name="JoinMenu" type="VBoxContainer" parent="PanelContainer/Menus"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/Menus/JoinMenu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5w2si")
+text = "IP:
+"
+
+[node name="IP" type="LineEdit" parent="PanelContainer/Menus/JoinMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ew3rj")
+text = "127.0.0.1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Menus/JoinMenu"]
+layout_mode = 2
+
+[node name="BackJoin" type="Button" parent="PanelContainer/Menus/JoinMenu/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_5w2si")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ttgt8")
+text = "Back"
+
+[node name="ConfirmJoin" type="Button" parent="PanelContainer/Menus/JoinMenu/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_5w2si")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l77bh")
+text = "Join"
+
+[node name="Info" type="Label" parent="PanelContainer/Menus/JoinMenu"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5w2si")
+
+[node name="ReadyMenu" type="VBoxContainer" parent="PanelContainer/Menus"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Menus/ReadyMenu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5w2si")
+text = "Players:
+"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Menus/ReadyMenu"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h46xj")
+
+[node name="Players" type="VBoxContainer" parent="PanelContainer/Menus/ReadyMenu/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/Menus/ReadyMenu"]
+layout_mode = 2
+
+[node name="BackReady" type="Button" parent="PanelContainer/Menus/ReadyMenu/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_5w2si")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rd8by")
+text = "Back
+"
+
+[node name="Ready" type="Button" parent="PanelContainer/Menus/ReadyMenu/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_5w2si")
+theme_override_styles/normal = SubResource("StyleBoxFlat_omwsj")
+text = "Ready"
+
+[node name="TimeContainer" type="HBoxContainer" parent="PanelContainer/Menus/ReadyMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/Menus/ReadyMenu/TimeContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5w2si")
+text = "Starting in:"
+
+[node name="Time" type="Label" parent="PanelContainer/Menus/ReadyMenu/TimeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5w2si")
+text = "5"
+
+[node name="StartTimer" type="Timer" parent="."]

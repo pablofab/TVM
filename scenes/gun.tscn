@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbkb77hyggiga"]
+
+[ext_resource type="Script" path="res://scenes/gun.gd" id="1_gr1ii"]
+[ext_resource type="PackedScene" uid="uid://gvvwivljh575" path="res://scenes/bullet.tscn" id="2_1q3dm"]
+[ext_resource type="Texture2D" uid="uid://bu1bfd7ex8dmm" path="res://resources/red_weapon.png" id="3_0aip6"]
+[ext_resource type="PackedScene" uid="uid://rayuiybx5mm7" path="res://scenes/debuff_bullet.tscn" id="3_c38vu"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_853ku"]
+properties/0/path = NodePath(".:rotation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_gr1ii")
+bullet_scene = ExtResource("2_1q3dm")
+bullet_scene2 = ExtResource("3_c38vu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(29, -28)
+scale = Vector2(4, 4)
+texture = ExtResource("3_0aip6")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -34)
+
+[node name="BulletSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/bullet.tscn")
+spawn_path = NodePath(".")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_853ku")
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 0.125
+
+[node name="TripleShotTimer" type="Timer" parent="."]
+
+[node name="DebuffShotTimer" type="Timer" parent="."]
+
+[node name="DebuffBulletSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/debuff_bullet.tscn")
+spawn_path = NodePath(".")

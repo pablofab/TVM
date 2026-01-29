@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://rayuiybx5mm7"]
+
+[ext_resource type="Script" path="res://scenes/debuff_bullet.gd" id="1_xm4w6"]
+[ext_resource type="Texture2D" uid="uid://kf3vob3xwe26" path="res://resources/debuff_bullet.png" id="2_i0tdm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rer68"]
+radius = 18.0278
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_s4kq4"]
+
+[node name="DebuffBullet" type="Area2D"]
+script = ExtResource("1_xm4w6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rer68")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 0)
+scale = Vector2(4, 3.797)
+texture = ExtResource("2_i0tdm")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_s4kq4")

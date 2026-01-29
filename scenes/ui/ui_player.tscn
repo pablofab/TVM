@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfj7cnkxiftli"]
+
+[ext_resource type="Script" path="res://scenes/ui/ui_player.gd" id="1_pawt0"]
+[ext_resource type="Texture2D" uid="uid://dxxan33wrawyt" path="res://resources/sprite_sprite.png" id="1_v26j3"]
+[ext_resource type="FontFile" uid="uid://bc8vyj7tmoy65" path="res://resources/Coffee Soda.ttf" id="2_sum5l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8sep"]
+bg_color = Color(0.32549, 0.635294, 0.823529, 0.431373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n20ve"]
+bg_color = Color(0.211765, 0.670588, 0.713726, 0.215686)
+
+[node name="UiPlayer" type="CanvasLayer"]
+script = ExtResource("1_pawt0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 292.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+texture = ExtResource("1_v26j3")
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sum5l")
+theme_override_styles/background = SubResource("StyleBoxFlat_n8sep")
+step = 10.0
+value = 100.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sum5l")
+text = " "
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 0
+offset_right = 122.0
+offset_bottom = 55.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n20ve")
+
+[node name="RichTextLabel2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sum5l")
+
+[node name="Timer" type="Timer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+wait_time = 10.0
+one_shot = true

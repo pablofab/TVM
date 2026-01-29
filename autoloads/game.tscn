@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6cfq0qe7ynw6"]
+
+[ext_resource type="Script" path="res://autoloads/game.gd" id="1_fmbhi"]
+[ext_resource type="Script" path="res://scripts/player_data_resource.gd" id="2_xaonh"]
+
+[sub_resource type="Resource" id="Resource_nviqh"]
+script = ExtResource("2_xaonh")
+name = "server"
+
+[sub_resource type="Resource" id="Resource_ckjww"]
+script = ExtResource("2_xaonh")
+name = "client"
+
+[sub_resource type="Resource" id="Resource_ggy1u"]
+script = ExtResource("2_xaonh")
+name = ""
+
+[node name="Game" type="Node"]
+script = ExtResource("1_fmbhi")
+test_players = Array[ExtResource("2_xaonh")]([SubResource("Resource_nviqh"), SubResource("Resource_ckjww"), SubResource("Resource_ggy1u")])
+
+[node name="PlayerId" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_bottom = 23.0
+grow_horizontal = 0
+horizontal_alignment = 2

@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://cvisb5e7dvpvm"]
+
+[ext_resource type="Texture2D" uid="uid://qajteh3qtcro" path="res://resources/red_player.png" id="2_kuyfh"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="2_v633a"]
+[ext_resource type="PackedScene" uid="uid://dk1jm0og6etd2" path="res://scenes/input_synchronizer.tscn" id="3_v4wgj"]
+[ext_resource type="PackedScene" uid="uid://cbkb77hyggiga" path="res://scenes/gun.tscn" id="4_qqj4i"]
+[ext_resource type="PackedScene" uid="uid://dfj7cnkxiftli" path="res://scenes/ui/ui_player.tscn" id="5_c5rdo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kgmf"]
+size = Vector2(131.375, 98)
+
+[sub_resource type="Animation" id="Animation_kle7d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g7jd1"]
+resource_name = "walk"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(1, 0), Vector2i(0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cply2"]
+_data = {
+"RESET": SubResource("Animation_kle7d"),
+"walk": SubResource("Animation_g7jd1")
+}
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 17
+collision_mask = 17
+motion_mode = 1
+script = ExtResource("2_v633a")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -55.0
+offset_top = 71.0
+offset_right = 50.0
+offset_bottom = 94.0
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_3kgmf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.96046e-08, 0)
+scale = Vector2(4.375, 4.01563)
+texture = ExtResource("2_kuyfh")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="InputSynchronizer" parent="." instance=ExtResource("3_v4wgj")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Gun" parent="." instance=ExtResource("4_qqj4i")]
+position = Vector2(46, -25)
+
+[node name="UiPlayer" parent="." instance=ExtResource("5_c5rdo")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cply2")
+}
+
+[node name="WallpassTimer" type="Timer" parent="."]
+
+[node name="WallpassCooldown" type="Timer" parent="."]
+
+[node name="PaintTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="DebuffTimer" type="Timer" parent="."]

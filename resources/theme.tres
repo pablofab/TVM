@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bwgdrcgopd0s1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rcv7e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kkjbp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1gts"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_56n3a"]
+
+[resource]
+MarginContainer/constants/margin_bottom = 20
+MarginContainer/constants/margin_left = 20
+MarginContainer/constants/margin_right = 20
+MarginContainer/constants/margin_top = 20
+MarginContainerSmall/base_type = &"MarginContainer"
+MarginContainerSmall/constants/margin_bottom = 10
+MarginContainerSmall/constants/margin_left = 10
+MarginContainerSmall/constants/margin_right = 10
+MarginContainerSmall/constants/margin_top = 10
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_rcv7e")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_kkjbp")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_e1gts")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_56n3a")
+smallsep/base_type = &"HSeparator"

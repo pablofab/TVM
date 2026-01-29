@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://bf5oi2hjqkq8r"]
+
+[ext_resource type="Script" path="res://scenes/tutorial_2.gd" id="1_ayjpj"]
+[ext_resource type="Texture2D" uid="uid://cfwl6f7gdxjbx" path="res://resources/fondo_1.png" id="1_dt5s3"]
+[ext_resource type="FontFile" uid="uid://bc8vyj7tmoy65" path="res://resources/Coffee Soda.ttf" id="2_qhcp4"]
+[ext_resource type="Texture2D" uid="uid://dxxan33wrawyt" path="res://resources/sprite_sprite.png" id="3_lyuds"]
+[ext_resource type="Texture2D" uid="uid://c5vdund156alk" path="res://resources/paint_jar.png" id="4_3clag"]
+[ext_resource type="Texture2D" uid="uid://4ger5uekl4rj" path="res://resources/green_weapon.png" id="5_f7xd3"]
+[ext_resource type="Texture2D" uid="uid://0nt22ij2albh" path="res://resources/power_up.png" id="6_33bqx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fi0k"]
+bg_color = Color(0.1092, 0.273, 0.39, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mood0"]
+bg_color = Color(0.608537, 0.586514, 0.664628, 1)
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ayjpj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dt5s3")
+expand_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(1000, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_5fi0k")
+
+[node name="Label" type="Label" parent="PanelContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_qhcp4")
+theme_override_font_sizes/font_size = 30
+text = "
+How to play
+
+
+Controles:
+Left -> A
+Right -> D
+Down -> S
+Up -> W
+Attack -> Left-Click
+x3 Attack -> Number 2
+Dash -> Shift
+Ghost -> 1"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Volver" type="Button" parent="PanelContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_qhcp4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mood0")
+text = "Volver
+"
+
+[node name="PowerUp" type="Sprite2D" parent="PanelContainer/PanelContainer"]
+position = Vector2(825, 124)
+scale = Vector2(4.21875, 3.8125)
+texture = ExtResource("6_33bqx")
+
+[node name="PaintJar" type="Sprite2D" parent="PanelContainer/PanelContainer"]
+position = Vector2(195, 375)
+scale = Vector2(6.53125, 6.46875)
+texture = ExtResource("4_3clag")
+
+[node name="GreenWeapon" type="Sprite2D" parent="PanelContainer/PanelContainer"]
+position = Vector2(849, 385)
+scale = Vector2(6.3125, 5.4375)
+texture = ExtResource("5_f7xd3")
+
+[node name="SpriteSprite" type="Sprite2D" parent="PanelContainer/PanelContainer"]
+position = Vector2(207, 134)
+scale = Vector2(3.5, 4.5)
+texture = ExtResource("3_lyuds")

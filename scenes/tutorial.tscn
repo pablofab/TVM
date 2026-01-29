@@ -1,0 +1,111 @@
+[gd_scene load_steps=3 format=3 uid="uid://yuc7ehie3kbj"]
+
+[ext_resource type="Texture2D" uid="uid://cfwl6f7gdxjbx" path="res://resources/fondo_1.png" id="1_wg4tg"]
+[ext_resource type="FontFile" uid="uid://bc8vyj7tmoy65" path="res://resources/Coffee Soda.ttf" id="3_ps8aq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wg4tg")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -422.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ps8aq")
+text = "
+
+Objetivo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ps8aq")
+text = "      El objetivo del 
+      juego es ir
+     \"pintando\" 
+      las paredes
+      con tu color."
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 215.0
+offset_right = -215.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ps8aq")
+text = "
+
+Controles"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ps8aq")
+text = "    A->  izquierda
+    D-> Derecha
+    S-> Abajo
+    W-> Arriba
+   Left-Click -> Disparar"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ps8aq")
+text = "
+
+Power-Ups"
+horizontal_alignment = 1
